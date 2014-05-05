@@ -1,7 +1,7 @@
-6_computer_security
+7_computer_security
 ===================
 
-Code for Lecture 6: Computer Security
+Code for Lecture 7: Computer Security
 
 Cross-site scripting (XSS)
 ---
