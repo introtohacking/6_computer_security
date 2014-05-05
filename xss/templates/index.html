@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Welcome to my Guestbook!</title>
+        <style>
+            body {
+                font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+                font-size:14px;
+            }
+
+            .container {
+                margin:20px;
+            }
+
+            .entry {
+                border-bottom:1px solid #888;
+                padding:10px;
+                margin-top:20px;
+                margin-bottom:20px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <h1>Welcome to my Guestbook!</h1>
+
+            <hr />
+
+            <br /><br />
+
+            <h2>Guestbook Entries</h2>
+
+            <div class="entries">
+
+                {% for date, content in entries %}
+
+                    <div class="entry">
+                        {{ date.strftime('%A %b %d') }} : {{ content|safe }}
+                    </div>
+
+                {% endfor %}
+            </div>
+
+            <br /><br />
+
+            <h2>Write in my Guestbook</h2>
+            <form method="POST" action="/">
+                <textarea id="submission-content" name="submission-content" rows="4" cols="50"></textarea><br /><br />
+                <input type="submit" value="Write in Guestbook"></input>
+            </form>
+        </div>
+
+        <script>
+            document.getElementById("submission-content").focus();
+        </script>
+
+
+    </body>
+</html>
