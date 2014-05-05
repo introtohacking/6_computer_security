@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Welcome to Hometown Bank!</title>
+        <style>
+            body {
+                font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+                font-size:14px;
+            }
+
+            .container {
+                margin:20px;
+            }
+
+            .entry {
+                border-bottom:1px solid #888;
+                padding:10px;
+                margin-top:20px;
+                margin-bottom:20px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <h1>Welcome to Hometown Bank!</h1>
+
+            <hr />
+
+            <br /><br />
+
+            <h2>Your Account Transactions</h2>
+
+            <div class="entries">
+
+                {% for date, type, amount in transactions %}
+
+                    <div class="entry">
+                        {{ date.strftime('%A %b %d') }} : {{ type }}, ${{ amount }}
+                    </div>
+
+                {% endfor %}
+            </div>
+
+            <br /><br />
+
+            <h2>New bank transaction</h2>
+            <form method="GET" action="/">
+                <input id="amount" name="amount" type="text" />
+                    
+                <select name="type">
+                    <option value="DEPOSIT">DEPOSIT</option>
+                    <option value="WITHDRAW">WITHDRAW</option>
+                </select>
+
+                <input type="submit" value="Execute Transaction"></input>
+            </form>
+        </div>
+
+        <script>
+            document.getElementById("amount").focus();
+        </script>
+
+
+    </body>
+</html>
